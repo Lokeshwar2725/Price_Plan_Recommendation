@@ -1,10 +1,5 @@
 # TariffAI - AI-Powered Telecom Plan Recommendation System
 
-![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)
-![Flask](https://img.shields.io/badge/Flask-3.0.0-000000?logo=flask)
-![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)
-![License](https://img.shields.io/badge/License-MIT-blue)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 
 ## 📖 Table of Contents
 1. [Project Overview](#-project-overview)
@@ -703,7 +698,7 @@ We welcome contributions from the community! Please follow these guidelines:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the LOKESHWAR and his [Team](#developers) - see the [LICENSE](LICENSE) file for details.
 
 ### Third-Party Licenses
 
@@ -714,12 +709,4 @@ This project uses several open-source packages:
 - **MongoDB:** Server Side Public License (SSPL)
 - **Groq API:** Proprietary, subject to Groq's Terms of Service
 
-### Commercial Use
 
-For commercial licensing or enterprise support, please contact [legal@yourcompany.com](mailto:legal@yourcompany.com).
-
----
-
-**Disclaimer:** This application is designed for demonstration purposes. Always ensure compliance with data protection regulations (GDPR, CCPA, etc.) when handling customer telecommunications data. Implement proper security measures before deploying in production environments.
-
-For support or questions, please contact [support@yourcompany.com](mailto:support@yourcompany.com) or create an issue in the GitHub repository.
