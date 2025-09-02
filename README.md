@@ -648,53 +648,7 @@ curl -X POST "http://localhost:5000/api/user" \
    - Use pagination for large datasets
    - Enable response compression
 
-## 🤝 Contributing
 
-We welcome contributions from the community! Please follow these guidelines:
-
-### Development Process
-
-1. **Fork the Repository**
-   ```bash
-   fork https://github.com/your-organization/tariffai
-   ```
-
-2. **Create a Feature Branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-
-3. **Follow Coding Standards**
-   - Python: PEP 8 guidelines
-   - JavaScript: ESLint configuration
-   - Commit messages: Conventional commits
-
-4. **Write Tests**
-   - Ensure adequate test coverage
-   - Include both unit and integration tests
-   - Update documentation as needed
-
-5. **Submit a Pull Request**
-   - Describe changes clearly
-   - Reference related issues
-   - Ensure all tests pass
-
-### Code Review Process
-
-1. **Automated Checks**
-   - Code linting and formatting
-   - Test suite execution
-   - Security vulnerability scanning
-
-2. **Manual Review**
-   - Architecture review
-   - Code quality assessment
-   - Performance implications
-
-3. **Merge Approval**
-   - Requires approval from maintainers
-   - Squash and merge commits
-   - Update version numbers appropriately
 
 ## 📄 License
 
