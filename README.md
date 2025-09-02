@@ -1,4 +1,4 @@
-# TariffAI - AI-Powered Telecom Plan Recommendation System
+# TariffAI - Price Plan Recommendation System
 
 
 ## 📖 Table of Contents
