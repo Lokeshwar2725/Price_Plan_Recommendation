@@ -159,7 +159,7 @@ def logout():
 # -----------------------------
 # Protected API: Uses session phone_number
 # -----------------------------
-@app.route('/api/user', methods=['GET'])
+@app.route('/api/user', methods=['POST'])
 def get_user_data():
     """
     Fetch user data using the phone_number stored in session.
@@ -176,15 +176,16 @@ def get_user_data():
     """
 
     try:
-        print("Session data:", dict(session))  # Debug print
-        if 'phone_number' not in session:
-            print("No phone number in session")  # Debug print
-            return jsonify({
-                "success": False,
-                "error": "Not authenticated"
-            }), 401
+        # print("Session data:", dict(session))  # Debug print
+        # if 'phone_number' not in session:
+        #     print("No phone number in session")  # Debug print
+        #     return jsonify({
+        #         "success": False,
+        #         "error": "Not authenticated"
+        #     }), 401
 
-        phone_number = session.get('phone_number')
+        data = request.get_json(silent=True) or {}
+        phone_number = data.get("phone_number")
         print(f"Looking up phone number: {phone_number}")  # Debug print
 
         # Get user data from MongoDB

@@ -10,10 +10,14 @@ function CustomerDashboard({ onLogout }) {
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
+    const session = sessionStorage.getItem("user");
+    console.log(session);
+    
     const fetchUserData = async () => {
       try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user`, {
-          method: 'GET',
+          method: 'POST',
+          body: JSON.stringify({ phone_number: JSON.parse(session).phone_number }),
           credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
