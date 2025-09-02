@@ -12,8 +12,7 @@
 8. [Data Architecture](#-data-architecture)
 9. [Usage Guide](#-usage-guide)
 10. [Deployment](#-deployment)
-11. [Contributing](#-contributing)
-12. [License](#-license)
+11. [License](#-license)
 
 ## 🚀 Project Overview
 
