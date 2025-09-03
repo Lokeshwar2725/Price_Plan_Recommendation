@@ -11,7 +11,7 @@
 7. [API Documentation](#-api-documentation)
 8. [Data Architecture](#-data-architecture)
 9. [Usage Guide](#-usage-guide)
-10. [Deployment](#-deployment)
+10. [Port Forwarding](#-port-forwarding)
 11. [License](#-license)
 
 ## 🚀 Project Overview
@@ -71,54 +71,13 @@ TariffAI is an intelligent full-stack web application designed to revolutionize 
 
 ## 🏗 System Architecture
 
-### High-Level Architecture Diagram
+### Architecture Diagram
 
-```mermaid
-graph TB
-    subgraph "Client Layer"
-        WEB[Web Browser<br/>React SPA]
-        MOB[Mobile Browser]
-    end
 
-    subgraph "Application Layer"
-        subgraph "Frontend"
-            UI[User Interface]
-            ROUTER[React Router]
-            STATE[State Management]
-        end
+![WhatsApp Image 2025-09-03 at 15 28 37_b17a0db1](https://github.com/user-attachments/assets/83cf241e-4d9f-41df-adbd-df2ba94fc3d3)
 
-        subgraph "Backend"
-            API[Flask API Server]
-            AUTH[Authentication Service]
-            ML[ML Recommendation Engine]
-            CHAT[Chatbot Service]
-        end
-    end
 
-    subgraph "Data Layer"
-        DB[(MongoDB Atlas<br/>Customer Data)]
-        ML_DATA[ML Data Files<br/>CSV/JSON]
-    end
 
-    subgraph "External Services"
-        GROQ[Groq Cloud API<br/>Llama-3.3-70B]
-        MONITOR[Monitoring Services]
-    end
-
-    WEB -->|HTTPS| API
-    MOB -->|HTTPS| API
-    
-    API --> DB
-    API --> ML_DATA
-    CHAT -->|API Call| GROQ
-    
-    API -->|Metrics| MONITOR
-
-    style WEB fill:#e1f5fe
-    style API fill:#f3e5f5
-    style DB fill:#fff3e0
-    style GROQ fill:#e8f5e9
-```
 
 ### Data Flow Process
 
@@ -154,79 +113,30 @@ sequenceDiagram
 
 ### Directory Hierarchy
 ```
-tariffai/
+tariffai-project/
 ├── backend/                    # Flask Application
-│   ├── app/                   # Application package
-│   │   ├── __init__.py       # App initialization
-│   │   ├── routes/           # API route handlers
-│   │   │   ├── auth.py       # Authentication routes
-│   │   │   ├── user.py       # User data routes
-│   │   │   ├── admin.py      # Admin dashboard routes
-│   │   │   └── chat.py       # Chatbot routes
-│   │   ├── models/           # Data models
-│   │   │   ├── user.py       # User model
-│   │   │   └── plan.py       # Plan model
-│   │   ├── utils/            # Utility functions
-│   │   │   ├── ml_utils.py   # ML helper functions
-│   │   │   └── auth_utils.py # Authentication helpers
-│   │   └── config.py         # Configuration settings
-│   ├── data/                 # Data files
-│   │   ├── processed/        # Processed ML data
+│   ├── data/
+│   │   ├── processed/          # Pre-processed ML data
 │   │   │   ├── customers_with_clusters.csv
 │   │   │   ├── plan_catalog.csv
 │   │   │   ├── new.json
-│   │   │   ├── model_features.json
-│   │   │   └── top3_recommendations_ph.csv
-│   │   └── raw/              # Raw data files
-│   ├── tests/                # Backend tests
-│   │   ├── test_auth.py
-│   │   ├── test_user.py
-│   │   └── test_chat.py
-│   ├── requirements.txt      # Python dependencies
-│   ├── .env.example         # Environment template
-│   └── app.py               # Application entry point
-│
-├── frontend/                 # React Application
-│   ├── public/              # Static files
-│   ├── src/                 # Source code
-│   │   ├── components/      # Reusable components
-│   │   │   ├── ui/          # Basic UI components
-│   │   │   ├── charts/      # Data visualization
-│   │   │   ├── layout/      # Layout components
-│   │   │   └── auth/        # Authentication components
-│   │   ├── pages/           # Page components
-│   │   │   ├── Login/       # Login page
-│   │   │   ├── Dashboard/   # User dashboard
-│   │   │   ├── Admin/       # Admin dashboard
-│   │   │   └── Error/       # Error pages
-│   │   ├── hooks/           # Custom React hooks
-│   │   ├── utils/           # Utility functions
-│   │   ├── contexts/        # React contexts
-│   │   ├── styles/          # Global styles
-│   │   ├── App.jsx          # Main app component
-│   │   ├── main.jsx         # Application entry point
-│   │   └── index.css        # Global styles
-│   ├── package.json         # npm dependencies
-│   ├── vite.config.js       # Vite configuration
-│   ├── .env.example         # Environment template
-│   └── index.html           # HTML template
-│
-├── docs/                    # Documentation
-│   ├── api/                 # API documentation
-│   ├── deployment/          # Deployment guides
-│   └── architecture/        # Architecture diagrams
-│
-├── scripts/                 # Utility scripts
-│   ├── init_db.py          # Database initialization
-│   ├── train_model.py      # ML model training
-│   └── backup.py           # Data backup
-│
-├── docker-compose.yml       # Multi-container setup
-├── Dockerfile              # Backend container definition
-├── Dockerfile.frontend     # Frontend container definition
-├── .gitignore              # Git ignore rules
-├── LICENSE                 # Project license
-└── README.md               # This file
+│   │   │   └── ...
+│   │   └── model_features.json # Features used for clustering
+│   ├── app.py                 # Main Flask application file
+│   ├── requirements.txt       # Python dependencies
+│   └── .env                  # Environment variables (create)
+├── frontend/                  # React Application
+│   ├── public/
+│   ├── src/
+│   │   ├── components/        # Reusable React components
+│   │   ├── pages/            # Main page components (Login, Dashboard)
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── package.json
+│   ├── vite.config.js
+│   └── .env                  # Frontend env variables (create)
+└── README.md                 # Project documentation (this file)
 ```
 
 ### Key File Descriptions
@@ -244,7 +154,6 @@ tariffai/
 ## 💻 Installation & Setup
 
 ### Prerequisites
-- **Node.js** 18.0+ [Download](https://nodejs.org/)
 - **Python** 3.8+ [Download](https://www.python.org/downloads/)
 - **MongoDB Atlas Account** [Sign Up](https://www.mongodb.com/atlas/database)
 - **Groq API Account** [Sign Up](https://console.groq.com/)
@@ -577,58 +486,6 @@ curl -X POST "http://localhost:5000/api/user" \
    - Regular updates to plan recommendations
    - Monthly usage data updates
 
-## 🚀 Deployment
-
-### Production Deployment Checklist
-
-1. **Environment Preparation**
-   - Set up production MongoDB cluster
-   - Configure production Groq API credentials
-   - Set appropriate environment variables
-   - Enable SSL certificates
-
-2. **Frontend Deployment**
-   ```bash
-   cd frontend
-   npm run build
-   # Deploy dist/ folder to your web server
-   ```
-
-3. **Backend Deployment**
-   ```bash
-   # Using Gunicorn for production
-   gunicorn -w 4 -b 0.0.0.0:5000 app:app
-   
-   # Using Docker
-   docker build -t tariffai-backend .
-   docker run -d -p 5000:5000 --env-file .env tariffai-backend
-   ```
-
-4. **Reverse Proxy Setup (Nginx)**
-   ```nginx
-   server {
-       listen 80;
-       server_name yourdomain.com;
-       
-       location / {
-           proxy_pass http://localhost:5173;
-           proxy_set_header Host $host;
-           proxy_set_header X-Real-IP $remote_addr;
-       }
-       
-       location /api {
-           proxy_pass http://localhost:5000;
-           proxy_set_header Host $host;
-           proxy_set_header X-Real-IP $remote_addr;
-       }
-   }
-   ```
-
-5. **Monitoring & Logging**
-   - Set up application monitoring (Prometheus/Grafana)
-   - Configure error tracking (Sentry)
-   - Implement log aggregation (ELK stack)
-   - Set up health check alerts
 
 ### Performance Optimization
 
@@ -646,6 +503,31 @@ curl -X POST "http://localhost:5000/api/user" \
    - Implement rate limiting
    - Use pagination for large datasets
    - Enable response compression
+
+# Port Forwarding Configuration
+
+## Overview
+Port forwarding has been configured to make the TariffAI application accessible from external networks for demonstration purposes.
+
+## Configuration Details
+
+### Backend (Flask API)
+- **Internal Port**: 5000
+- **External Port**: 5000
+- **Protocol**: TCP
+
+### Frontend (React Development Server)
+- **Internal Port**: 5173
+- **External Port**: 5173
+- **Protocol**: TCP
+
+## Access Instructions
+
+### Local Network Access
+http://[local-ip]:5173
+
+### External Network Access
+http://[public-ip]:5173
 
 
 
