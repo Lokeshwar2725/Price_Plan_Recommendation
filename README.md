@@ -504,7 +504,7 @@ curl -X POST "http://localhost:5000/api/user" \
    - Use pagination for large datasets
    - Enable response compression
 
-# Port Forwarding Configuration
+# Port Forwarding 
 
 ## Overview
 Port forwarding has been configured to make the TariffAI application accessible from external networks for demonstration purposes.
