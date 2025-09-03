@@ -38,7 +38,7 @@ TariffAI is an intelligent full-stack web application designed to revolutionize 
 |-----------|------------|---------|---------|
 | Framework | React | 18.3.1 | Component-based UI development |
 | Build Tool | Vite | 6.3.5 | Next-generation frontend tooling |
-| Styling | Tailwind CSS | 3.4.1 | Utility-first CSS framework |
+| Styling | CSS | 3.4.1 | Utility-first CSS framework |
 | Routing | React Router DOM | 7.8.2 | Declarative client-side routing |
 | Icons | Lucide React | 0.344.0 | Beautiful & consistent iconography |
 | Charts | Recharts | 2.8.0 | Composable charting library |
