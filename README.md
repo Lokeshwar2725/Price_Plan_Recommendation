@@ -504,29 +504,29 @@ curl -X POST "http://localhost:5000/api/user" \
    - Use pagination for large datasets
    - Enable response compression
 
-# Port Forwarding 
+## Port Forwarding 
 
 ## Overview
 Port forwarding has been configured to make the TariffAI application accessible from external networks for demonstration purposes.
 
-## Configuration Details
+### Configuration Details
 
-### Backend (Flask API)
+#### Backend (Flask API)
 - **Internal Port**: 5000
 - **External Port**: 5000
 - **Protocol**: TCP
 
-### Frontend (React Development Server)
+#### Frontend (React Development Server)
 - **Internal Port**: 5173
 - **External Port**: 5173
 - **Protocol**: TCP
 
-## Access Instructions
+#### Access Instructions
 
-### Local Network Access
+#### Local Network Access
 http://[local-ip]:5173
 
-### External Network Access
+#### External Network Access
 http://[public-ip]:5173
 
 
